@@ -22,10 +22,15 @@ session:
 services:
 	router: App\RouterFactory::createRouter
 
+	- App\Model\Repository\UserRepository
+
 	- Tomaj\NetteApi\Link\ApiLink
 	- Tomaj\NetteApi\Misc\IpDetector
 	apiDecider:
 		class: Tomaj\NetteApi\ApiDecider
 		setup:
 			- addApiHandler(\Tomaj\NetteApi\EndpointIdentifier('GET', 1, 'echo'), \App\Api\v1\Handlers\EchoHandler(), \Tomaj\NetteApi\Authorization\NoAuthorization())
+			- addApiHandler(\Tomaj\NetteApi\EndpointIdentifier('POST', 1, 'user', 'create'), \App\Api\v1\Handlers\CreateUserHandler(), \Tomaj\NetteApi\Authorization\NoAuthorization())
+			- addApiHandler(\Tomaj\NetteApi\EndpointIdentifier('GET', 1, 'user', 'detail'), \App\Api\v1\Handlers\DetailUserHandler(), \Tomaj\NetteApi\Authorization\NoAuthorization())
+			- addApiHandler(\Tomaj\NetteApi\EndpointIdentifier('GET', 1, 'user', 'list'), \App\Api\v1\Handlers\ListUserHandler(), \Tomaj\NetteApi\Authorization\NoAuthorization())
 
