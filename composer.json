@@ -23,6 +23,7 @@
 		"tomaj/nette-api": "^1.2"
 	},
 	"require-dev": {
-		"nette/tester": "^1.6"
+		"phpunit/phpunit": "~4.3",
+		"squizlabs/php_codesniffer": "2.*"
 	}
 }

@@ -8,12 +8,12 @@ use Tomaj\NetteApi\Response\JsonApiResponse;
 
 class EchoHandler extends BaseHandler
 {
-	public function params()
-	{
-		return [
+    public function params()
+    {
+        return [
             new InputParam(InputParam::TYPE_GET, 'echo', InputParam::REQUIRED),
         ];
-	}
+    }
 
     public function handle($params)
     {
